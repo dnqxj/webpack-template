@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "webpack --mode production",
     "serve": "webpack server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,7 @@
     "@babel/preset-env": "^7.19.0",
     "@babel/preset-react": "^7.18.6",
     "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
     "eslint-config-prettier": "^8.5.0",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "2.7.1",

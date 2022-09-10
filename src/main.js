@@ -1,7 +1,12 @@
-import { compose } from '@/utils/index'
+import React from "react";
+import { createRoot } from 'react-dom/client'
+import Menu from "./components/Menu"
+import data from "./data/recipes.json"
+// 直接导入样式
+import "@/assets/styles/index.scss"
 
-const fun1 = (x) => x * x
-const fun2 = (x) => x + 1
 
-const res = compose(fun1, fun2)(5)
-console.log(res)
+const container = document.getElementById('root')
+const root = createRoot(container)
+
+root.render(<Menu recipes={data} />)

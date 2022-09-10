@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Baked Salmon",
+    "ingredients": [
+      { "name": "Salmon", "amount": 1, "measurement": "lb"},
+      { "name": "Salmon1", "amount": 1, "measurement": "lb"},
+      { "name": "Salmon2", "amount": 1, "measurement": "lb"},
+      { "name": "Salmon3", "amount": 1, "measurement": "lb"},
+      { "name": "Salmon4", "amount": 1, "measurement": "lb"},
+      { "name": "Salmon5", "amount": 1, "measurement": "lb"}
+    ],
+    "steps": [
+      "Preheat1 the oven to 350 degrees.",
+      "Preheat2 the oven to 350 degrees.",
+      "Preheat3 the oven to 350 degrees.",
+      "Preheat4 the oven to 350 degrees.",
+      "Preheat5 the oven to 350 degrees."
+    ]
+  },
+  {
+    "name": "Baked Salmon2",
+    "ingredients": [
+      { "name": "Salmon", "amount": 1, "measurement": "lb"},
+      { "name": "Salmon1", "amount": 1, "measurement": "lb"},
+      { "name": "Salmon2", "amount": 1, "measurement": "lb"},
+      { "name": "Salmon3", "amount": 1, "measurement": "lb"},
+      { "name": "Salmon4", "amount": 1, "measurement": "lb"},
+      { "name": "Salmon5", "amount": 1, "measurement": "lb"}
+    ],
+    "steps": [
+      "Preheat1 the oven to 350 degrees.",
+      "Preheat2 the oven to 350 degrees.",
+      "Preheat3 the oven to 350 degrees.",
+      "Preheat4 the oven to 350 degrees.",
+      "Preheat5 the oven to 350 degrees."
+    ]
+  }
+]
