@@ -70,10 +70,10 @@ module.exports = {
     }
   },
   // 外部扩展，打包时不处理，而是在模板上使用script标签进行引入
-  externals: {
-    "react": 'React',
-    "react-dom": "ReactDOM"
-  },
+  // externals: {
+  //   "react": 'React',
+  //   "react-dom": "ReactDOM"
+  // },
   devtool: "eval-source-map",
   devServer: {
     open: true,
