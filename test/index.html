@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root">hello</div>
+</body>
+
+</html>
+<script>
+  // 编写的错误后继续执行函数（1.5倍时间延时）
+  const simplePoller = (function () {
+    const timerFunc = (queryFun, time) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(queryFun());
+        }, time)
+      }).then(res => {
+        if (res) {
+          return Promise.resolve(true)
+        } else {
+          time = time * 1.5
+          return timerFunc(queryFun, time)
+        }
+      })
+    }
+
+    // 执行查询，如果失败，则增加1.5倍时间再次执行
+    function simplePoller(queryFun, callback) {
+      let initSec = 1000;
+      timerFunc(queryFun, initSec).then(res => {
+        // 成功后，res为true。执行回调
+        console.log(res)
+        callback();
+      })
+    }
+    return simplePoller;
+  })()
+
+  // 测试代码
+  // 测试请求函数，前三次返回false。第四次返回true
+  let i = 1;
+  const queryFun1 = () => {
+    console.log(`第${i}次调用queryFun1`)
+    if (i < 4) {
+      i++;
+      return Promise.resolve(false);
+    } else {
+      return Promise.resolve(true);;
+    }
+  }
+
+  // 请求函数2，前五次返回false。第六次返回true
+  let j = 1;
+  const queryFun2 = () => {
+    console.log(`第${j}次调用queryFun2`)
+    if (j < 6) {
+      j++;
+      return Promise.resolve(false);
+    } else {
+      return Promise.resolve(true);;
+    }
+  }
+
+  // 测试回调函数
+  const callback1 = () => {
+    console.log('this is a callback1')
+  }
+
+  const callback2 = () => {
+    console.log('this is a callback2')
+  }
+
+  // 执行测试
+  simplePoller(queryFun1, callback1)
+  simplePoller(queryFun2, callback2)
+</script>

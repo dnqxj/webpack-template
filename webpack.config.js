@@ -4,9 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  mode:  'development',
+  mode: 'development',
   entry: './src/main.js',
   output: {
+    library: {
+      name: 'Test',
+      type: 'umd',
+      export: 'default'
+    },
+    umdNamedDefine: true,
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js'
   },
@@ -59,18 +65,18 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "@": path.join(__dirname, 'src'),
-      "@img": path.join(__dirname, 'src/assets/images')
+      "@": path.resolve(__dirname, 'src'),
+      "@img": path.resolve(__dirname, 'src/assets/images')
     }
   },
-  // 外部扩展
+  // 外部扩展，打包时不处理，而是在模板上使用script标签进行引入
   externals: {
     "react": 'React',
-    "react-dom": "ReactDOM" 
+    "react-dom": "ReactDOM"
   },
   devtool: "eval-source-map",
   devServer: {
     open: true,
-    port: 8080
+    port: 8081
   }
 }
